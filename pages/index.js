@@ -1,12 +1,17 @@
-const hello = () => {
+console.log('Rendering on Both')
+import Typography from '@material-ui/core/Typography';
+
+const hello = ({data}) => {
         return(
-            <div><h1>Hello World!! 🚀 </h1>
-            <style jsx>{`
-		  h1 {
-            font-size: 3rem;
-            text-align: center;
-		  }
-		`}</style>
+            <div><Typography variant='h2'>{data} </Typography>
+            
             </div>
         )}
+
+        hello.getInitialProps = async ()=>{
+         
+          console.log('Server Side Rendering')
+          return {data:'Hello World 🚀 '}
+          
+        }
 export default hello;
